@@ -1,54 +1,81 @@
-# Telecom_X_ONE_Alura_
-# 📊 Análise de Evasão de Clientes (Churn) - Telecom X  
-Projeto realizado no contexto do **Programa ONE/Alura (Oracle Next Education)**.  
+# Telecom_X_ONE_Alura
+# 📊 Projeto de Previsão de Churn - Telecom X (Parte 2)  
 
 ---
 
-## 📝 Descrição do Projeto  
-Este repositório apresenta a solução para um desafio de Data Science do Programa ONE em parceria com a Alura.  
-O objetivo foi explorar os dados da empresa fictícia **Telecom X** a fim de compreender os principais motivos que levam clientes a encerrar seus contratos (churn).  
+## 1. Objetivo Geral  
+O foco deste trabalho foi construir um modelo de **Machine Learning** capaz de prever a evasão de clientes (churn) da empresa fictícia **Telecom X**.  
+Além de desenvolver um classificador eficiente, buscou-se também entender quais aspectos demográficos e relacionados ao uso dos serviços mais impactam a decisão de cancelamento, de forma a apoiar estratégias de negócio.  
 
 ---
 
-## 🚀 Objetivos da Análise  
-- Identificar o perfil dos clientes que mais cancelam o serviço.  
-- Analisar os fatores (tipo de contrato, valor da fatura, etc.) que influenciam diretamente a evasão.  
-- Gerar insights que ajudem a equipe de Data Science a construir modelos preditivos e que orientem a empresa na criação de estratégias de retenção.  
+## 2. Estrutura do Projeto e Ferramentas Utilizadas  
+O desenvolvimento foi realizado em um notebook Jupyter (`.ipynb`) com **Python** e as seguintes bibliotecas principais:  
+
+- **Pandas:** limpeza, manipulação e preparação dos dados.  
+- **Scikit-learn:** construção, treinamento e avaliação dos modelos, além do escalonamento das variáveis.  
+- **Matplotlib / Seaborn (opcional):** visualização exploratória dos dados.  
+
+📂 Organização do repositório:  
+- `README.md`: documentação detalhada do projeto.  
+- `analise_churn_parte2.ipynb`: notebook com código e análises.  
+- `dados_tratados.csv`: dataset final, já limpo e pronto para a modelagem.  
 
 ---
 
-## 🛠️ Ferramentas e Tecnologias  
-- **Linguagem:** Python  
-- **Bibliotecas:** Pandas (tratamento de dados), Matplotlib e Seaborn (visualização gráfica)  
-- **Ambiente:** Google Colab  
+## 3. Modelos Testados e Resultados  
+Foram comparados dois algoritmos de classificação: **Regressão Logística** e **Random Forest**.  
+
+O modelo escolhido foi a **Regressão Logística**, que apresentou melhor desempenho no critério mais relevante para o negócio: identificar corretamente os clientes com risco real de evasão.  
+
+📊 Comparativo de métricas:  
+
+| Métrica                | Regressão Logística | Random Forest |
+|-------------------------|----------------------|---------------|
+| **Acurácia Geral**      | 79.74%              | 77.75%        |
+| **Recall (Churn = 1)**  | 54%                 | 46%           |
+| **Precisão (Churn = 1)**| 64%                 | 61%           |
+
+> O **recall** foi usado como métrica decisiva, pois mede a capacidade do modelo de identificar os clientes que realmente irão cancelar — permitindo ações preventivas da empresa.  
 
 ---
 
-## 📊 Principais Descobertas  
-- A taxa média de evasão da empresa é de cerca de **27%**.  
-- Clientes com **contratos mensais** demonstram probabilidade significativamente maior de cancelamento.  
-- Usuários que possuem **faturas mensais mais altas** também apresentam maior chance de churn.  
+## 4. Insights da Análise  
+A interpretação dos coeficientes da **Regressão Logística** revelou os principais fatores que influenciam o churn:  
+
+🔺 **Fatores de Risco (aumentam a chance de evasão)**  
+- **Tipo de Internet:** uso de Fibra Óptica é o maior indicador de risco.  
+- **Forma de Pagamento:** clientes que utilizam **Cheque Eletrônico** têm maior propensão a cancelar.  
+- **Fatura Digital:** adesão ao *Paperless Billing* também se relaciona a uma maior taxa de churn.  
+
+🔻 **Fatores de Retenção (reduzem a chance de evasão)**  
+- **Tipo de Contrato:** planos de **1 ou 2 anos** são o fator mais protetor contra cancelamentos.  
+- **Serviços Extras:** contratação de **Suporte Técnico** e **Segurança Online** está fortemente associada à fidelização.  
 
 ---
 
-## 💡 Recomendações  
-- Criar estratégias de retenção para clientes de planos mensais, oferecendo benefícios ou descontos que incentivem a migração para contratos de longa duração.  
-- Reavaliar a estrutura de preços dos **planos mais caros**, garantindo que os serviços entregues (como velocidade de internet e canais de TV) sejam percebidos como compatíveis ao valor cobrado.  
+## 5. Recomendações Estratégicas  
+Com base nos resultados, são sugeridas as seguintes ações:  
+
+1. **Fidelização via Contrato:** campanhas de marketing com descontos ou benefícios para incentivar clientes de planos mensais a aderirem a contratos mais longos (1–2 anos).  
+2. **Avaliação do Serviço de Fibra:** conduzir uma investigação detalhada (como pesquisas de satisfação) com usuários de Fibra Óptica para entender os motivos da alta taxa de evasão — preço, qualidade ou concorrência.  
+3. **Agregação de Valor:** promover pacotes que incluam **Suporte Técnico** e **Segurança Online** como diferenciais, já que mostraram impacto positivo na retenção.  
 
 ---
 
-## 📁 Como Executar  
-1. Clone este repositório.  
-2. Abra o notebook `Desafio_Telecom_X.ipynb`, onde está todo o código e a análise completa.  
-3. Execute em um ambiente como **Google Colab** ou **Jupyter Notebook**.  
+## 6. Como Executar o Projeto  
+1. Clone este repositório na sua máquina.  
+2. Verifique se possui o **Python** e as bibliotecas necessárias instaladas (`pandas`, `scikit-learn`, etc.).  
+3. Abra o notebook `analise_churn_parte2.ipynb` em um ambiente como **Jupyter Notebook** ou **Google Colab**.  
+4. Caso use o Google Colab, faça o upload do arquivo `dados_tratados.csv` para o ambiente.  
+5. Execute as células do notebook na ordem indicada.
 
 ---
-
+   
 ## 📧 Contato  
-- **Autor:** Alisson Matheus  
+- **Responsável:** Alisson Matheus  
 - **E-mail:** alisson.ssilva@ufpe.br  
 
 ---
 
-ℹ️ Projeto desenvolvido com finalidade **educacional**, no âmbito do **Programa Alura ONE**.  
-
+ℹ️ Este projeto foi elaborado com propósito **educacional** no âmbito do **Programa Alura ONE**.
